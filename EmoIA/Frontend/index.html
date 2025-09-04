@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmoIA — Chat de Emociones</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="brand">
+          <!-- Logo (SVG) -->
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64" class="logo-svg">
+              <!-- Glow background -->
+              <defs>
+                <radialGradient id="g" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#10a37f" stop-opacity="1" />
+                  <stop offset="60%" stop-color="#7c3aed" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#111827" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="32" cy="32" r="28" fill="url(#g)" opacity="0.35" />
+              <!-- Chat bubble -->
+              <path
+                d="M18 18h28a8 8 0 0 1 8 8v6a8 8 0 0 1-8 8H30l-8 6v-6h-4a8 8 0 0 1-8-8v-6a8 8 0 0 1 8-8z"
+                fill="none"
+                stroke="#e5e7eb"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- Heart-emotion curve -->
+              <path
+                d="M22 34c2-4 6-6 10-2c4-4 8-2 10 2"
+                fill="none"
+                stroke="#10a37f"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <!-- Orbiting dot -->
+              <circle class="orbit" cx="32" cy="8" r="2.4" fill="#7c3aed" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="title">EmoIA</span>
+            <span class="subtitle">Detección de emociones</span>
+          </div>
+        </div>
+
+        <nav class="actions">
+          <button id="newChatBtn">+ Nuevo Chat</button>
+          <button id="clearChatBtn">🗑 Limpiar Chat</button>
+        </nav>
+
+        <div class="legend">
+          <p>Leyenda de emociones</p>
+          <ul>
+            <li><span class="dot neutral"></span>Neutro</li>
+            <li><span class="dot happy"></span>Feliz</li>
+            <li><span class="dot sad"></span>Triste</li>
+            <li><span class="dot angry"></span>Enojo</li>
+            <li><span class="dot fear"></span>Miedo</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="chat-container">
+        <header class="topbar">
+          <div class="brand compact">
+            <div class="logo small">
+              <!-- Reutilizamos el mismo SVG en pequeño -->
+              <svg viewBox="0 0 64 64" class="logo-svg">
+                <defs>
+                  <radialGradient id="g2" cx="50%" cy="50%" r="60%">
+                    <stop offset="0%" stop-color="#10a37f" stop-opacity="1" />
+                    <stop
+                      offset="60%"
+                      stop-color="#7c3aed"
+                      stop-opacity="0.85"
+                    />
+                    <stop offset="100%" stop-color="#111827" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <circle cx="32" cy="32" r="28" fill="url(#g2)" opacity="0.35" />
+                <path
+                  d="M18 18h28a8 8 0 0 1 8 8v6a8 8 0 0 1-8 8H30l-8 6v-6h-4a8 8 0 0 1-8-8v-6a8 8 0 0 1 8-8z"
+                  fill="none"
+                  stroke="#e5e7eb"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22 34c2-4 6-6 10-2c4-4 8-2 10 2"
+                  fill="none"
+                  stroke="#10a37f"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <circle class="orbit" cx="32" cy="8" r="2.4" fill="#7c3aed" />
+              </svg>
+            </div>
+            <span class="title">EmoIA</span>
+          </div>
+
+          <div class="header-actions">
+            <button id="exportBtn" class="ghost">Exportar chat</button>
+          </div>
+        </header>
+
+        <section
+          id="chatBox"
+          class="chat-box"
+          aria-live="polite"
+          aria-label="Mensajes del chat"
+        >
+          <!-- Mensajes renderizados por JS -->
+        </section>
+
+        <footer class="chat-input">
+          <div class="input-wrap">
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Escribe cómo te sientes..."
+              aria-label="Escribe tu mensaje"
+            />
+            <button id="sendBtn" title="Enviar (Enter)">Enviar</button>
+          </div>
+          <div class="tips">
+            Consejo: describe lo que sientes y EmoIA te dará apoyo emocional y
+            sugerencias.
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
